@@ -27,7 +27,7 @@ export default function GameMapPage() {
           <MapLocation 
             icon={<Building2 size={40} className="text-slate-600" />}
             title="Banco"
-            to="#"
+            to="/game/bank"
             desc="Solicita préstamos y paga deudas."
           />
           <MapLocation 

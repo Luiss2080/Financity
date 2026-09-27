@@ -4,6 +4,7 @@ import LandingLayout from './layouts/LandingLayout';
 import HomePage from './landing/pages/HomePage';
 import GameMapPage from './pages/GameMapPage';
 import HousePage from './pages/HousePage';
+import BankPage from './modules/banking/pages/BankPage';
 import PlayerCreationModal from './modules/profile/components/PlayerCreationModal';
 
 function AppContent() {
@@ -26,6 +27,7 @@ function AppContent() {
         {/* En el futuro GameLayout envolverá esto */}
         <Route path="/game/map" element={<GameMapPage />} />
         <Route path="/game/house" element={<HousePage />} />
+        <Route path="/game/bank" element={<BankPage />} />
       </Routes>
 
       {showCreation && (
