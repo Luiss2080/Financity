@@ -2,6 +2,7 @@ import { useGameStore } from '../store/gameStore';
 import { Wallet, Briefcase, Plus, AlertCircle, ArrowLeft } from 'lucide-react';
 import { useState } from 'react';
 import { Link } from 'react-router-dom';
+import SavingsGoalCard from '../modules/savings/components/SavingsGoalCard';
 
 export default function HousePage() {
   const { profile, budgetEngine, addIncome, addExpense, error, clearError } = useGameStore();
@@ -103,6 +104,23 @@ export default function HousePage() {
               </button>
             </form>
 
+          </div>
+        </div>
+
+        {/* Metas de Ahorro RF-15 */}
+        <div className="mt-8">
+          <h2 className="text-xl font-bold text-slate-800 mb-6">Mis Metas</h2>
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+            <SavingsGoalCard 
+              goalName="Fondo de Emergencia"
+              targetAmount={3000}
+              currentAmount={0}
+              onAddSavings={(amount) => {
+                // TODO: En Fase 2 conectar esto al core de estado y DB. 
+                // Por ahora usamos addExpense simulando mover dinero al fondo.
+                addExpense('Ahorro a Fondo de Emergencia', amount);
+              }}
+            />
           </div>
         </div>
       </div>
