@@ -6,7 +6,23 @@ export default function GameMapPage() {
     <div className="min-h-screen bg-slate-100 flex flex-col">
       <header className="bg-white p-6 shadow-sm border-b border-slate-200 flex justify-between items-center">
         <h1 className="text-2xl font-bold text-slate-800">Mapa de la Ciudad</h1>
-        <Link to="/" className="text-slate-500 hover:text-brand font-medium">Volver a Inicio</Link>
+        <div className="flex items-center gap-4">
+          <button 
+            onClick={async () => {
+              try {
+                const userId = localStorage.getItem('financity_user_id');
+                const res = await fetch(`http://localhost:3000/api/profiles/${userId}/turn`, { method: 'POST' });
+                const data = await res.json();
+                if (!res.ok) throw new Error(data.error);
+                alert(`🗓️ ${data.message}`);
+              } catch (e: any) { alert(`Error: ${e.message}`); }
+            }}
+            className="px-6 py-2 bg-brand text-white font-bold rounded-xl hover:bg-brand-light transition-colors shadow-lg shadow-brand/20"
+          >
+            Avanzar Mes
+          </button>
+          <Link to="/" className="text-slate-500 hover:text-brand font-medium">Salir</Link>
+        </div>
       </header>
 
       <div className="flex-1 p-6 md:p-12 relative overflow-hidden flex items-center justify-center">
