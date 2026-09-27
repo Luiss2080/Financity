@@ -6,6 +6,7 @@ export class PlayerProfile {
   public income: number = 0;
   public savings: number = 0;
   public debt: number = 0;
+  public skills: Record<string, number> = { technology: 0 };
 
   constructor(userId: string, name: string) {
     this.userId = userId;
