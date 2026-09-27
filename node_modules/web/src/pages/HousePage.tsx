@@ -3,6 +3,7 @@ import { Wallet, Briefcase, Plus, AlertCircle, ArrowLeft } from 'lucide-react';
 import { useState } from 'react';
 import { Link } from 'react-router-dom';
 import SavingsGoalCard from '../modules/savings/components/SavingsGoalCard';
+import BudgetChart from '../modules/analytics/components/BudgetChart';
 
 export default function HousePage() {
   const { profile, budgetEngine, addIncome, addExpense, error, clearError } = useGameStore();
@@ -105,6 +106,15 @@ export default function HousePage() {
             </form>
 
           </div>
+        </div>
+
+        {/* Dashboard Analítico RF-37 */}
+        <div className="mt-8">
+          <BudgetChart 
+            income={profile.income} 
+            expenses={budgetEngine.getExpenses()} 
+            loanInstallments={0 /* TODO: Connect to BankEngine */} 
+          />
         </div>
 
         {/* Metas de Ahorro RF-15 */}
