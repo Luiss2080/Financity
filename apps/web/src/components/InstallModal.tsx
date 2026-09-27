@@ -1,5 +1,5 @@
 import { motion, AnimatePresence } from 'framer-motion';
-import { X, Smartphone, Monitor, Apple, Terminal, Globe } from 'lucide-react';
+import { X, Smartphone, Monitor, Apple, Globe } from 'lucide-react';
 
 interface Props {
   onClose: () => void;

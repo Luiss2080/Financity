@@ -1,5 +1,5 @@
 import { motion } from 'framer-motion';
-import { ArrowRight, Monitor, Smartphone, Globe, Download, Play, ShieldCheck, TrendingUp, BookOpen } from 'lucide-react';
+import { Download, Play, ShieldCheck, TrendingUp, BookOpen } from 'lucide-react';
 import { useState } from 'react';
 import InstallModal from '../components/InstallModal';
 import { Link } from 'react-router-dom';
