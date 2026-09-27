@@ -22,9 +22,22 @@ model PlayerProfile {
   age       Int      @default(18)
   money     Float    @default(1500)
   income    Float    @default(0)
+  skills    Json     @default("{\"technology\": 0}")
   user      User     @relation(fields: [userId], references: [id])
   expenses  Expense[]
   loans     Loan[]
+  courses   PlayerCourse[]
+  currentJobId String?
+}
+
+model PlayerCourse {
+  id             String   @id @default(uuid())
+  profileId      String
+  courseId       String
+  name           String
+  monthsRemaining Int
+  xpReward       Int
+  profile        PlayerProfile @relation(fields: [profileId], references: [id])
 }
 
 model Expense {
