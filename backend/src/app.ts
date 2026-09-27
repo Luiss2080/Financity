@@ -9,6 +9,7 @@ app.use(express.json());
 import { AuthController } from './presentation/controllers/AuthController';
 import { ProfileController } from './presentation/controllers/ProfileController';
 import { BankController } from './presentation/controllers/BankController';
+import { CareerController } from './presentation/controllers/CareerController';
 
 app.get('/health', (req, res) => {
   res.status(200).json({ status: 'OK', message: 'FinanCity API running' });
@@ -19,5 +20,7 @@ app.get('/api/profiles/:id', ProfileController.getProfile);
 app.post('/api/profiles/:id/income', ProfileController.addIncome);
 app.post('/api/profiles/:id/expenses', ProfileController.addExpense);
 app.post('/api/profiles/:id/loans', BankController.requestLoan);
+app.post('/api/profiles/:id/courses', CareerController.enrollCourse);
+app.post('/api/profiles/:id/jobs', CareerController.applyJob);
 
 export default app;
