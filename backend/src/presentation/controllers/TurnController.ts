@@ -9,7 +9,7 @@ export class TurnController {
       const { id } = req.params;
 
       const profileData = await prisma.playerProfile.findUnique({
-        where: { userId: id },
+        where: { userId: id as string },
         include: { expenses: true, loans: true, courses: true }
       });
       if (!profileData) throw new Error('Not found');

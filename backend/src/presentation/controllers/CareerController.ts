@@ -10,7 +10,7 @@ export class CareerController {
       const { courseId, name, cost, durationMonths, xpReward } = req.body;
 
       const profileData = await prisma.playerProfile.findUnique({
-        where: { userId: id }
+        where: { userId: id as string }
       });
       if (!profileData) throw new Error('Not found');
 
@@ -55,7 +55,7 @@ export class CareerController {
       const { jobId, title, salary, requiredSkill } = req.body;
 
       const profileData = await prisma.playerProfile.findUnique({
-        where: { userId: id }
+        where: { userId: id as string }
       });
       if (!profileData) throw new Error('Not found');
 

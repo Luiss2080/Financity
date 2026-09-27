@@ -9,7 +9,7 @@ export class ProfileController {
     try {
       const id = req.params.id as string;
       const profile = await prisma.playerProfile.findUnique({
-        where: { userId: id },
+        where: { userId: id as string },
         include: { expenses: true }
       });
 
@@ -26,7 +26,7 @@ export class ProfileController {
       const id = req.params.id as string;
       const { amount } = req.body;
 
-      const profile = await prisma.playerProfile.findUnique({ where: { userId: id } });
+      const profile = await prisma.playerProfile.findUnique({ where: { userId: id as string } });
       if (!profile) throw new Error('Not found');
 
       // Regla Core
@@ -36,7 +36,7 @@ export class ProfileController {
 
       // Persistencia
       await prisma.playerProfile.update({
-        where: { userId: id },
+        where: { userId: id as string },
         data: { income: coreProfile.income }
       });
 
@@ -54,7 +54,7 @@ export class ProfileController {
 
       // 1. Cargar desde BD
       const profileData = await prisma.playerProfile.findUnique({
-        where: { userId: id },
+        where: { userId: id as string },
         include: { expenses: true }
       });
       if (!profileData) throw new Error('Not found');

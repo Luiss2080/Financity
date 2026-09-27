@@ -11,7 +11,7 @@ export class BankController {
 
       // 1. Cargar perfil desde BD
       const profileData = await prisma.playerProfile.findUnique({
-        where: { userId: id }
+        where: { userId: id as string }
       });
       if (!profileData) throw new Error('Not found');
 
