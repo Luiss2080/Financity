@@ -19,7 +19,7 @@ export const useGameStore = create<GameState>((set, get) => ({
   error: null,
 
   addIncome: (amount: number) => {
-    const { profile, budgetEngine } = get();
+    const { profile } = get();
     profile.addIncome(amount);
     set({ 
       profile: Object.assign(new PlayerProfile(profile.userId, profile.name), profile),
