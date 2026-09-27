@@ -37,8 +37,9 @@ describe('ScoreEngine - Phase 7', () => {
   });
 
   it('RF-40: Debería devolver 0 si no hay ingresos pero hay gastos', () => {
-    profile.income = 0;
+    profile.income = 1000;
     budget.addExpense('Comida', 500);
+    profile.income = 0; // Se queda desempleado
 
     const health = score.calculateFinancialHealth();
     expect(health).toBe(0);
