@@ -57,8 +57,12 @@ describe('TurnEngine - Phase 4', () => {
 
   it('RF-33: Debería lanzar Bancarrota si los gastos y préstamos superan la liquidez + ingresos', () => {
     profile.money = 0;
-    profile.income = 1000;
-    budget.addExpense('Lujos', 2000);
+    profile.income = 0;
+    
+    // Al pedir préstamo se añade al profile.money
+    bank.requestLoan(100000, 0.20, 5); // Cuota gigante = 24000
+    // profile.money es 100000. Así que gastamos ese dinero para no poder pagar la cuota.
+    profile.money = 0;
     
     expect(() => turn.nextMonth()).toThrow('Bancarrota: No tienes dinero para cubrir tus gastos.');
   });
