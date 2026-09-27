@@ -7,7 +7,7 @@ export class ProfileController {
   // RF-7: Obtener estado
   static async getProfile(req: Request, res: Response) {
     try {
-      const { id } = req.params;
+      const id = req.params.id as string;
       const profile = await prisma.playerProfile.findUnique({
         where: { userId: id },
         include: { expenses: true }
@@ -23,7 +23,7 @@ export class ProfileController {
   // Ingresos
   static async addIncome(req: Request, res: Response) {
     try {
-      const { id } = req.params;
+      const id = req.params.id as string;
       const { amount } = req.body;
 
       const profile = await prisma.playerProfile.findUnique({ where: { userId: id } });
@@ -49,7 +49,7 @@ export class ProfileController {
   // RF-8: Registrar Gasto
   static async addExpense(req: Request, res: Response) {
     try {
-      const { id } = req.params;
+      const id = req.params.id as string;
       const { name, amount } = req.body;
 
       // 1. Cargar desde BD
@@ -66,7 +66,8 @@ export class ProfileController {
 
       const engine = new BudgetEngine(coreProfile);
       // Rehidratar estado (gastos anteriores)
-      for (const exp of profileData.expenses) {
+      const expenses = (profileData as any).expenses || [];
+      for (const exp of expenses) {
         engine.addExpense(exp.name, exp.amount);
       }
 
