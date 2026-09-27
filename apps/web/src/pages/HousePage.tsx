@@ -33,7 +33,16 @@ export default function HousePage() {
         {/* Header RF-1 */}
         <header className="flex justify-between items-center bg-white p-6 rounded-2xl shadow-sm border border-slate-100">
           <div>
-            <h1 className="text-2xl font-bold text-slate-800">Hola, {profile.name} 👋</h1>
+            <div className="flex items-center gap-3">
+              <h1 className="text-2xl font-bold text-slate-800">Hola, {profile.name} 👋</h1>
+              <div className={`px-3 py-1 rounded-full text-sm font-bold ${
+                useGameStore(s => s.healthScore) >= 80 ? 'bg-emerald-100 text-emerald-700' : 
+                useGameStore(s => s.healthScore) >= 50 ? 'bg-amber-100 text-amber-700' : 
+                'bg-rose-100 text-rose-700'
+              }`}>
+                Score: {useGameStore(s => s.healthScore)}
+              </div>
+            </div>
             <p className="text-slate-500">Edad: {profile.age} años</p>
           </div>
           <div className="flex items-center gap-2 bg-brand/10 text-brand px-4 py-2 rounded-lg font-semibold">
