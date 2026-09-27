@@ -9,6 +9,7 @@ class PlayerProfile {
     income = 0;
     savings = 0;
     debt = 0;
+    skills = { technology: 0 };
     constructor(userId, name) {
         this.userId = userId;
         this.name = name;

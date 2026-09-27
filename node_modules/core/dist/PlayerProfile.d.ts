@@ -6,6 +6,7 @@ export declare class PlayerProfile {
     income: number;
     savings: number;
     debt: number;
+    skills: Record<string, number>;
     constructor(userId: string, name: string);
     addIncome(amount: number): void;
 }

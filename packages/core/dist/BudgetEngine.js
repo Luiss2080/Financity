@@ -13,6 +13,9 @@ class BudgetEngine {
         }
         this.expenses.push({ name, amount });
     }
+    getExpenses() {
+        return this.expenses;
+    }
     getTotalExpenses() {
         return this.expenses.reduce((total, expense) => total + expense.amount, 0);
     }
