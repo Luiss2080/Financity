@@ -21,6 +21,10 @@ export class BudgetEngine {
     this.expenses.push({ name, amount });
   }
 
+  public getExpenses(): Expense[] {
+    return this.expenses;
+  }
+
   public getTotalExpenses(): number {
     return this.expenses.reduce((total, expense) => total + expense.amount, 0);
   }
