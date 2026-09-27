@@ -3,9 +3,27 @@ import { Link } from 'react-router-dom';
 import LoanSimulator from '../components/LoanSimulator';
 
 export default function BankPage() {
-  const handleTakeLoan = (amount: number, rate: number, months: number) => {
-    // Aquí invocaremos la API de Backend para registrar el préstamo en BD
-    alert(`Préstamo solicitado: Bs ${amount} al ${rate*100}% por ${months} meses.`);
+  const handleTakeLoan = async (amount: number, rate: number, months: number) => {
+    try {
+      const userId = localStorage.getItem('financity_user_id');
+      if (!userId) {
+        alert("Usuario no autenticado");
+        return;
+      }
+
+      const res = await fetch(`http://localhost:3000/api/profiles/${userId}/loans`, {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ amount, rate, months })
+      });
+
+      const data = await res.json();
+      if (!res.ok) throw new Error(data.error);
+
+      alert(`¡Felicidades! ${data.message}`);
+    } catch (error: any) {
+      alert(`Error bancario: ${error.message}`);
+    }
   };
 
   return (
