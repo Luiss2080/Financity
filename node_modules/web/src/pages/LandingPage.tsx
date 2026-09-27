@@ -3,6 +3,7 @@ import InstallModal from '../components/InstallModal';
 import HeroSection from '../components/landing/HeroSection';
 import FeaturesSection from '../components/landing/FeaturesSection';
 import ChallengesCarousel from '../components/landing/ChallengesCarousel';
+import FAQSection from '../components/landing/FAQSection';
 
 export default function LandingPage() {
   const [isInstallOpen, setInstallOpen] = useState(false);
@@ -15,6 +16,7 @@ export default function LandingPage() {
       <HeroSection onOpenInstall={() => setInstallOpen(true)} />
       <FeaturesSection />
       <ChallengesCarousel />
+      <FAQSection />
 
       {/* Modal */}
       {isInstallOpen && <InstallModal onClose={() => setInstallOpen(false)} />}
