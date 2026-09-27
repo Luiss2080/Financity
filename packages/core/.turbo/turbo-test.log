@@ -2,16 +2,16 @@
 > core@1.0.0 test
 > jest
 
-PASS src/__tests__/CareerEngine.test.ts
+PASS src/__tests__/PlayerProfile.test.ts
 PASS src/__tests__/MissionEngine.test.ts
 PASS src/__tests__/BudgetEngine.test.ts
-PASS src/__tests__/PlayerProfile.test.ts
-PASS src/__tests__/BankEngine.test.ts
+PASS src/__tests__/CareerEngine.test.ts
 PASS src/__tests__/ScoreEngine.test.ts
 PASS src/__tests__/TurnEngine.test.ts
+PASS src/__tests__/BankEngine.test.ts
 
 Test Suites: 7 passed, 7 total
 Tests:       20 passed, 20 total
 Snapshots:   0 total
-Time:        3.726 s, estimated 4 s
+Time:        2.955 s
 Ran all test suites.

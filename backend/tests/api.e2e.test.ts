@@ -1,14 +1,16 @@
 import request from 'supertest';
-import app from '../src/app'; // Asumimos que exportaremos app sin listen
+import app from '../src/app'; 
+import { prisma } from '../src/infrastructure/database/prisma';
 
 describe('API E2E Tests - Spec 002', () => {
   let createdUserId: string;
+  const randomEmail = `test_${Date.now()}@financity.com`;
 
   it('RF-6: Debería registrar un usuario y crear su perfil con Bs 1500 iniciales', async () => {
     const res = await request(app)
       .post('/api/auth/register')
       .send({
-        email: 'test@financity.com',
+        email: randomEmail,
         password: 'Password123!',
         name: 'Jugador Test'
       });

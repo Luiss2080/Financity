@@ -2,90 +2,15 @@
 > backend@1.0.0 test
 > jest
 
-FAIL tests/api.e2e.test.ts
+PASS tests/api.e2e.test.ts
   API E2E Tests - Spec 002
-    × RF-6: Debería registrar un usuario y crear su perfil con Bs 1500 iniciales (382 ms)
-    × RF-7: Debería retornar el estado financiero actualizado del perfil (20 ms)
-    × RF-8 (Éxito): Debería permitir agregar un gasto si hay dinero disponible (9 ms)
-    × RF-8 (Fallo): Debería bloquear el gasto y retornar error si excede el dinero (Deficit) (5 ms)
+    √ RF-6: Debería registrar un usuario y crear su perfil con Bs 1500 iniciales (124 ms)
+    √ RF-7: Debería retornar el estado financiero actualizado del perfil (77 ms)
+    √ RF-8 (Éxito): Debería permitir agregar un gasto si hay dinero disponible (32 ms)
+    √ RF-8 (Fallo): Debería bloquear el gasto y retornar error si excede el dinero (Deficit) (5 ms)
 
-  ● API E2E Tests - Spec 002 › RF-6: Debería registrar un usuario y crear su perfil con Bs 1500 iniciales
-
-    expect(received).toBe(expected) // Object.is equality
-
-    Expected: 201
-    Received: 400
-
-    [0m [90m 14 |[39m       })[33m;[39m
-     [90m 15 |[39m
-    [31m[1m>[22m[39m[90m 16 |[39m     expect(res[33m.[39mstatus)[33m.[39mtoBe([35m201[39m)[33m;[39m
-     [90m    |[39m                        [31m[1m^[22m[39m
-     [90m 17 |[39m     expect(res[33m.[39mbody[33m.[39mprofile)[33m.[39mtoBeDefined()[33m;[39m
-     [90m 18 |[39m     expect(res[33m.[39mbody[33m.[39mprofile[33m.[39mmoney)[33m.[39mtoBe([35m1500[39m)[33m;[39m
-     [90m 19 |[39m     expect(res[33m.[39mbody[33m.[39mprofile[33m.[39mage)[33m.[39mtoBe([35m18[39m)[33m;[39m[0m
-
-      at Object.<anonymous> (tests/api.e2e.test.ts:16:24)
-
-  ● API E2E Tests - Spec 002 › RF-7: Debería retornar el estado financiero actualizado del perfil
-
-    expect(received).toBe(expected) // Object.is equality
-
-    Expected: 200
-    Received: 404
-
-    [0m [90m 27 |[39m       [33m.[39m[36mget[39m([32m`/api/profiles/${createdUserId}`[39m)[33m;[39m
-     [90m 28 |[39m
-    [31m[1m>[22m[39m[90m 29 |[39m     expect(res[33m.[39mstatus)[33m.[39mtoBe([35m200[39m)[33m;[39m
-     [90m    |[39m                        [31m[1m^[22m[39m
-     [90m 30 |[39m     expect(res[33m.[39mbody[33m.[39mmoney)[33m.[39mtoBe([35m1500[39m)[33m;[39m
-     [90m 31 |[39m     expect(res[33m.[39mbody[33m.[39mincome)[33m.[39mtoBe([35m0[39m)[33m;[39m
-     [90m 32 |[39m   })[33m;[39m[0m
-
-      at Object.<anonymous> (tests/api.e2e.test.ts:29:24)
-
-  ● API E2E Tests - Spec 002 › RF-8 (Éxito): Debería permitir agregar un gasto si hay dinero disponible
-
-    expect(received).toBe(expected) // Object.is equality
-
-    Expected: 201
-    Received: 400
-
-    [0m [90m 42 |[39m       [33m.[39msend({ name[33m:[39m [32m'Comida'[39m[33m,[39m amount[33m:[39m [35m500[39m })[33m;[39m
-     [90m 43 |[39m
-    [31m[1m>[22m[39m[90m 44 |[39m     expect(res[33m.[39mstatus)[33m.[39mtoBe([35m201[39m)[33m;[39m
-     [90m    |[39m                        [31m[1m^[22m[39m
-     [90m 45 |[39m     expect(res[33m.[39mbody[33m.[39mmessage)[33m.[39mtoBe([32m'Gasto registrado con éxito'[39m)[33m;[39m
-     [90m 46 |[39m   })[33m;[39m
-     [90m 47 |[39m[0m
-
-      at Object.<anonymous> (tests/api.e2e.test.ts:44:24)
-
-  ● API E2E Tests - Spec 002 › RF-8 (Fallo): Debería bloquear el gasto y retornar error si excede el dinero (Deficit)
-
-    expect(received).toBe(expected) // Object.is equality
-
-    Expected: "Presupuesto en déficit"
-    Received: "Not found"
-
-    [0m [90m 52 |[39m
-     [90m 53 |[39m     expect(res[33m.[39mstatus)[33m.[39mtoBe([35m400[39m)[33m;[39m
-    [31m[1m>[22m[39m[90m 54 |[39m     expect(res[33m.[39mbody[33m.[39merror)[33m.[39mtoBe([32m'Presupuesto en déficit'[39m)[33m;[39m [90m// El mensaje que lanza nuestro @financity/core[39m
-     [90m    |[39m                            [31m[1m^[22m[39m
-     [90m 55 |[39m   })[33m;[39m
-     [90m 56 |[39m })[33m;[39m
-     [90m 57 |[39m[0m
-
-      at Object.<anonymous> (tests/api.e2e.test.ts:54:28)
-
-Test Suites: 1 failed, 1 total
-Tests:       4 failed, 4 total
+Test Suites: 1 passed, 1 total
+Tests:       4 passed, 4 total
 Snapshots:   0 total
-Time:        5.424 s
+Time:        4.151 s
 Ran all test suites.
-npm error Lifecycle script `test` failed with error:
-npm error code 1
-npm error path C:\laragon\www\Financity\backend
-npm error workspace backend@1.0.0
-npm error location C:\laragon\www\Financity\backend
-npm error command failed
-npm error command C:\Windows\system32\cmd.exe /d /s /c jest
