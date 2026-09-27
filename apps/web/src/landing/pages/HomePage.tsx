@@ -1,9 +1,9 @@
 import { useState } from 'react';
-import InstallModal from '../components/InstallModal';
-import HeroSection from '../components/landing/HeroSection';
-import FeaturesSection from '../components/landing/FeaturesSection';
-import ChallengesCarousel from '../components/landing/ChallengesCarousel';
-import FAQSection from '../components/landing/FAQSection';
+import InstallModal from '../../components/InstallModal';
+import HeroSection from '../components/HeroSection';
+import FeaturesSection from '../components/FeaturesSection';
+import ChallengesCarousel from '../components/ChallengesCarousel';
+import FAQSection from '../components/FAQSection';
 
 export default function LandingPage() {
   const [isInstallOpen, setInstallOpen] = useState(false);
