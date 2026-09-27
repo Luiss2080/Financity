@@ -21,7 +21,7 @@ export default function GameMapPage() {
           <MapLocation 
             icon={<Briefcase size={40} className="text-amber-600" />}
             title="Trabajo"
-            to="#"
+            to="/game/jobs"
             desc="Busca empleo y cobra tu salario."
           />
           <MapLocation 
@@ -33,7 +33,7 @@ export default function GameMapPage() {
           <MapLocation 
             icon={<GraduationCap size={40} className="text-purple-500" />}
             title="Universidad"
-            to="#"
+            to="/game/university"
             desc="Estudia para mejorar tus ingresos."
           />
           <MapLocation 
