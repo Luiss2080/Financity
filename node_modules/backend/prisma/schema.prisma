@@ -23,6 +23,7 @@ model PlayerProfile {
   money     Float    @default(1500)
   income    Float    @default(0)
   skills    Json     @default("{\"technology\": 0}")
+  completedMissions Json @default("[]")
   user      User     @relation(fields: [userId], references: [id])
   expenses  Expense[]
   loans     Loan[]
