@@ -99,7 +99,12 @@ export class TurnController {
         }
       });
 
-      res.status(200).json({ message: 'Ha pasado un mes. Gastos y deudas procesadas.' });
+      let msg = 'Ha pasado un mes. Gastos y deudas procesadas.';
+      if (justCompleted.length > 0) {
+        msg += ` ¡Misión completada: ${justCompleted.map((m:any)=>m.title).join(', ')}! Recompensas recibidas.`;
+      }
+
+      res.status(200).json({ message: msg });
     } catch (error: any) {
       res.status(400).json({ error: error.message });
     }
