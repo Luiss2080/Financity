@@ -22,6 +22,6 @@ describe('BudgetEngine - RF-3 y RF-4', () => {
     // Esto debería lanzar el error específico dictado por la spec
     expect(() => {
       engine.addExpense('Hipoteca', 1500);
-    }).toThrowError('Presupuesto en déficit');
+    }).toThrow('Presupuesto en déficit');
   });
 });
