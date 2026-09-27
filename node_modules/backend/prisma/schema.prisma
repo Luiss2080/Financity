@@ -24,6 +24,7 @@ model PlayerProfile {
   income    Float    @default(0)
   user      User     @relation(fields: [userId], references: [id])
   expenses  Expense[]
+  loans     Loan[]
 }
 
 model Expense {
@@ -33,4 +34,17 @@ model Expense {
   amount    Float
   createdAt DateTime @default(now())
   profile   PlayerProfile @relation(fields: [profileId], references: [id])
+}
+
+model Loan {
+  id             String   @id @default(uuid())
+  profileId      String
+  principal      Float
+  interestRate   Float
+  months         Int
+  totalOwed      Float
+  remaining      Float
+  monthlyPayment Float
+  createdAt      DateTime @default(now())
+  profile        PlayerProfile @relation(fields: [profileId], references: [id])
 }
