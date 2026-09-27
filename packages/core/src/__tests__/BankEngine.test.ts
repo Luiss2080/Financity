@@ -31,8 +31,11 @@ describe('BankEngine - Phase 2', () => {
   });
 
   it('RF-20: Debería lanzar alerta si el pago del préstamo supera el disponible mensual', () => {
-    bank.requestLoan(50000, 0.20, 5); // Cuota gigante: (50k*1.2)/5 = 12000
+    bank.requestLoan(50000, 0.20, 5); // Cuota gigante: 12000
     
+    // Simulamos que el jugador se gastó todo el préstamo comprando algo
+    profile.money = 0;
+
     expect(() => {
       bank.processMonthlyPayments();
     }).toThrow('Bancarrota: Fondos insuficientes para cubrir cuotas bancarias.');
