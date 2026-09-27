@@ -42,14 +42,40 @@ export class TurnController {
 
       // 2. Ejecutar turno (Avanzar mes)
       const turn = new TurnEngine(coreProfile, budget, bank, career);
-      turn.nextMonth(); // Esto muta coreProfile y reduce remaining de courses/loans internamente en el Engine
+      turn.nextMonth(); 
+
+      // Misiones (Fase 5)
+      const { MissionEngine } = require('core');
+      const missionEngine = new MissionEngine(coreProfile);
+      
+      // Misiones hardcodeadas para MVP
+      const missions = [
+        { id: 'm1', title: 'Consigue tu primer empleo', type: 'INCOME_GREATER_THAN', targetValue: 0, xpReward: 50, moneyReward: 500, isCompleted: false },
+        { id: 'm2', title: 'Ahorra tus primeros Bs 5000', type: 'MONEY_GREATER_THAN', targetValue: 5000, xpReward: 100, moneyReward: 1000, isCompleted: false }
+      ];
+
+      const completedMissionIds = typeof profileData.completedMissions === 'string' 
+        ? JSON.parse(profileData.completedMissions) 
+        : (profileData.completedMissions || []);
+
+      for (const m of missions) {
+        m.isCompleted = completedMissionIds.includes(m.id);
+        missionEngine.addMission(m);
+      }
+
+      const justCompleted = missionEngine.checkMissions();
+      const newCompletedIds = [...completedMissionIds, ...justCompleted.map((m: any) => m.id)];
 
       // 3. Persistir en BD
       await prisma.$transaction(async (tx) => {
-        // Actualizar dinero e income
+        // Actualizar dinero e income y misiones
         await tx.playerProfile.update({
           where: { id: profileData.id },
-          data: { money: coreProfile.money, skills: coreProfile.skills }
+          data: { 
+            money: coreProfile.money, 
+            skills: coreProfile.skills,
+            completedMissions: newCompletedIds
+          }
         });
 
         // Actualizar Remaining de préstamos (Simplificado: restar 1 cuota)
