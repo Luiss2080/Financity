@@ -13,12 +13,14 @@
     <img src="https://img.shields.io/badge/EXPRESS-5-000000?style=for-the-badge&logo=express&logoColor=white" alt="Express" />
     <img src="https://img.shields.io/badge/PRISMA-5-2d3748?style=for-the-badge&logo=prisma&logoColor=white" alt="Prisma" />
     <img src="https://img.shields.io/badge/MYSQL-8.4-4479a1?style=for-the-badge&logo=mysql&logoColor=white" alt="MySQL" />
+    <img src="https://img.shields.io/badge/licencia-MIT-yellow?style=for-the-badge" alt="Licencia MIT" />
   </p>
 
   [Características](#-características) • 
   [Arquitectura](#-arquitectura) • 
   [Inicio Rápido](#-inicio-rápido) • 
   [Pruebas](#-pruebas) • 
+  [Contribuir](#-contribuir) • 
   [Documentación](./docs/FULL_SPEC.md)
 
 </div>
@@ -133,4 +135,18 @@ npm run test
 
 <div align="center">
   <i>Desarrollado con ❤️ aplicando Clean Architecture y Spec-Driven Development</i>
+</div>
+
+---
+
+## 🤝 Contribuir
+
+¡Las contribuciones son bienvenidas! Leé la [guía de contribución](CONTRIBUTING.md) y el [código de conducta](CODE_OF_CONDUCT.md) antes de abrir un PR. Para bugs o ideas usá las [plantillas de issues](../../issues/new/choose); los problemas de seguridad se reportan según la [política de seguridad](SECURITY.md).
+
+## 📄 Licencia
+
+Distribuido bajo la licencia **MIT**. Ver [`LICENSE`](LICENSE).
+
+<div align="center">
+  <sub>Hecho por <a href="https://github.com/Luiss2080">Luiss2080</a> · simulador financiero educativo con React, Express y Prisma</sub>
 </div>
