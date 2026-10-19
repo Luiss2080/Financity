@@ -14,6 +14,8 @@
     <img src="https://img.shields.io/badge/PRISMA-5-2d3748?style=for-the-badge&logo=prisma&logoColor=white" alt="Prisma" />
     <img src="https://img.shields.io/badge/MYSQL-8.4-4479a1?style=for-the-badge&logo=mysql&logoColor=white" alt="MySQL" />
     <img src="https://img.shields.io/badge/licencia-MIT-yellow?style=for-the-badge" alt="Licencia MIT" />
+    <img src="https://img.shields.io/github/last-commit/Luiss2080/Financity?style=flat-square" alt="Último commit" />
+    <img src="https://img.shields.io/badge/PRs-bienvenidos-brightgreen?style=flat-square" alt="PRs bienvenidos" />
   </p>
 
   [Características](#-características) • 
